@@ -74,16 +74,16 @@ void luutopcb(int topc){
 void luutopve(int topv){
     // mở file
     FILE *ft = fopen("data/ve/Topve.txt", "w");
-    printf("1\n");
+
     // kiểm tra
     if (ft == NULL){
         printf("error: Topve.txt\n");
         exit(1);
     }
-    printf("mo file ve thanh cong\n");
+    
     // ghi
     fprintf(ft, "%d\n", topv);
-    printf("2\n");
+    
     // đóng file
     fclose(ft);
 }

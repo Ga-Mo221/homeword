@@ -122,11 +122,9 @@ void pay_ticket()
             printf("Bam phim bat ki de xac nhan....\n");
             getch();
             system("cls");
-            
             //-------------------chọn hạng ghế
             printf("\t1.Thuong Gia\n\t2.Pho Thong\n");
             printf("Chon: ");
-            system("cls");
             scanf("%d", &hangve);
             switch (hangve)
             {
