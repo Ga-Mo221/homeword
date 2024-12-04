@@ -271,9 +271,7 @@ void remove_ticket_Stack(){
 
             // giảm top
             topve--;
-            printf("topve: %d\n", topve);
             luutopve(topve);
-            printf("ghi de thanh cong\n");
         }
         Write_ve(fvet, ve);
     }

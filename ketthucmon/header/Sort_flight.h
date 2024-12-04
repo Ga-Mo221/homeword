@@ -42,19 +42,19 @@ int Sort_flight()
     //-----------------------------------đóng file--------------------------------------------
     fclose(fcb);
     //-------------------------------sắp xếp--------------------------------
-    for (int i = 0; i < size; i++)
+    for (int i = 0; i < size-1; i++)
     {
-        for (int j = 0; j < size; j++)
+        for (int j = 0; j < size-1-i; j++)
         {
-            if (cb_temp[i].ngayBay.tm_year < cb_temp[j].ngayBay.tm_year
-            ||(cb_temp[i].ngayBay.tm_year == cb_temp[j].ngayBay.tm_year && cb_temp[i].ngayBay.tm_mon > cb_temp[j].ngayBay.tm_mon)
-            ||(cb_temp[i].ngayBay.tm_year == cb_temp[j].ngayBay.tm_year && cb_temp[i].ngayBay.tm_mon == cb_temp[j].ngayBay.tm_mon && cb_temp[i].ngayBay.tm_mday < cb_temp[j].ngayBay.tm_mday)
-            ||(cb_temp[i].ngayBay.tm_year == cb_temp[j].ngayBay.tm_year && cb_temp[i].ngayBay.tm_mon == cb_temp[j].ngayBay.tm_mon && cb_temp[i].ngayBay.tm_mday == cb_temp[j].ngayBay.tm_mday && cb_temp[i].ngayBay.tm_hour < cb_temp[j].ngayBay.tm_hour)
-            ||(cb_temp[i].ngayBay.tm_year == cb_temp[j].ngayBay.tm_year && cb_temp[i].ngayBay.tm_mon == cb_temp[j].ngayBay.tm_mon && cb_temp[i].ngayBay.tm_mday == cb_temp[j].ngayBay.tm_mday && cb_temp[i].ngayBay.tm_hour == cb_temp[j].ngayBay.tm_hour && cb_temp[i].ngayBay.tm_min < cb_temp[j].ngayBay.tm_min))
+            if (cb_temp[j].ngayBay.tm_year < cb_temp[j+1].ngayBay.tm_year
+            ||(cb_temp[j].ngayBay.tm_year == cb_temp[j+1].ngayBay.tm_year && cb_temp[j].ngayBay.tm_mon > cb_temp[j+1].ngayBay.tm_mon)
+            ||(cb_temp[j].ngayBay.tm_year == cb_temp[j+1].ngayBay.tm_year && cb_temp[j].ngayBay.tm_mon == cb_temp[j+1].ngayBay.tm_mon && cb_temp[j].ngayBay.tm_mday < cb_temp[j+1].ngayBay.tm_mday)
+            ||(cb_temp[j].ngayBay.tm_year == cb_temp[j+1].ngayBay.tm_year && cb_temp[j].ngayBay.tm_mon == cb_temp[j+1].ngayBay.tm_mon && cb_temp[j].ngayBay.tm_mday == cb_temp[j+1].ngayBay.tm_mday && cb_temp[j].ngayBay.tm_hour < cb_temp[j+1].ngayBay.tm_hour)
+            ||(cb_temp[j].ngayBay.tm_year == cb_temp[j+1].ngayBay.tm_year && cb_temp[j].ngayBay.tm_mon == cb_temp[j+1].ngayBay.tm_mon && cb_temp[j].ngayBay.tm_mday == cb_temp[j+1].ngayBay.tm_mday && cb_temp[j].ngayBay.tm_hour == cb_temp[j+1].ngayBay.tm_hour && cb_temp[j].ngayBay.tm_min < cb_temp[j+1].ngayBay.tm_min))
             {
-                cb1 = cb_temp[i];
-                cb_temp[i] = cb_temp[j];
-                cb_temp[j] = cb1;
+                cb1 = cb_temp[j];
+                cb_temp[j] = cb_temp[j+1];
+                cb_temp[j+1] = cb1;
             }
         }
     }
