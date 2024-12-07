@@ -4,6 +4,7 @@
 // file.h
 #include "Ql_struct.h"
 #include "Read_Write.h"
+#include "stack_IRO.h"
 
 // sắp xếp chuyến bay theo thời gian
 int Sort_flight()
@@ -46,15 +47,8 @@ int Sort_flight()
     {
         for (int j = 0; j < size-1-i; j++)
         {
-            if (cb_temp[j].ngayBay.tm_year < cb_temp[j+1].ngayBay.tm_year
-            ||(cb_temp[j].ngayBay.tm_year == cb_temp[j+1].ngayBay.tm_year && cb_temp[j].ngayBay.tm_mon > cb_temp[j+1].ngayBay.tm_mon)
-            ||(cb_temp[j].ngayBay.tm_year == cb_temp[j+1].ngayBay.tm_year && cb_temp[j].ngayBay.tm_mon == cb_temp[j+1].ngayBay.tm_mon && cb_temp[j].ngayBay.tm_mday < cb_temp[j+1].ngayBay.tm_mday)
-            ||(cb_temp[j].ngayBay.tm_year == cb_temp[j+1].ngayBay.tm_year && cb_temp[j].ngayBay.tm_mon == cb_temp[j+1].ngayBay.tm_mon && cb_temp[j].ngayBay.tm_mday == cb_temp[j+1].ngayBay.tm_mday && cb_temp[j].ngayBay.tm_hour < cb_temp[j+1].ngayBay.tm_hour)
-            ||(cb_temp[j].ngayBay.tm_year == cb_temp[j+1].ngayBay.tm_year && cb_temp[j].ngayBay.tm_mon == cb_temp[j+1].ngayBay.tm_mon && cb_temp[j].ngayBay.tm_mday == cb_temp[j+1].ngayBay.tm_mday && cb_temp[j].ngayBay.tm_hour == cb_temp[j+1].ngayBay.tm_hour && cb_temp[j].ngayBay.tm_min < cb_temp[j+1].ngayBay.tm_min))
-            {
-                cb1 = cb_temp[j];
-                cb_temp[j] = cb_temp[j+1];
-                cb_temp[j+1] = cb1;
+            if (!sosanh(cb_temp[j].ngayBay, cb_temp[j+1].ngayBay)) { // Đổi thành so sánh ngược
+                doivitri(&cb_temp[j], &cb_temp[j+1]);
             }
         }
     }

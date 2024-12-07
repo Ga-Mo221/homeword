@@ -1,0 +1,4 @@
+001 | vietnam airline | ha noi | da nang | 22 12 2024 13 0 22 12 2024 15 15 3000 1500 0
+002 | vietnam airline | da nang | ha noi | 24 12 2024 13 0 24 12 2024 15 15 3000 1500 0
+003 | vietjet | ha noi | da nang | 22 12 2024 7 12 22 12 2024 9 56 2000 1500 0
+004 | vietjet | nha trang | vung tau | 15 12 2024 22 22 16 12 2024 0 44 2222 1111 0

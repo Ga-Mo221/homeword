@@ -9,6 +9,7 @@
 #include "Output.h"
 #include "Clear_spaces.h"
 #include "Chair.h"
+#include "stack_IRO.h"
 
 // chọn chuyến bay
 CB choose_flight(FILE *file)
@@ -85,7 +86,7 @@ void pay_ticket()
             strcpy(pay.loaive,"mot chieu");
             system("cls");
             Filtering_flight();
-            Seatch_flight_position_time(pay.tu, pay.den, pay.ngaybay.tm_mday, pay.ngaybay.tm_mon, pay.ngaybay.tm_year);
+            timkiem(pay.tu, pay.den, pay.ngaybay.tm_mday, pay.ngaybay.tm_mon, pay.ngaybay.tm_year);
             Sort_flight();
             //-------------------mở file
             FILE *filecb = fopen("data/chuyen_bay/TEMP_flight.txt", "r");
@@ -213,7 +214,7 @@ void pay_ticket()
                 printf("tu: %s, den: %s, %d/%d/%d\n",pay.tu, pay.den, pay.ngaybay.tm_mday,pay.ngaybay.tm_mon,pay.ngaybay.tm_year);
                 //----------------------------chon chuyen bay
                 Filtering_flight();
-                Seatch_flight_position_time(pay.tu, pay.den, pay.ngaybay.tm_mday, pay.ngaybay.tm_mon, pay.ngaybay.tm_year);
+                timkiem(pay.tu, pay.den, pay.ngaybay.tm_mday, pay.ngaybay.tm_mon, pay.ngaybay.tm_year);
                 Sort_flight();
                 //-------------------mở file
                 FILE *filecb = fopen("data/chuyen_bay/TEMP_flight.txt", "r");

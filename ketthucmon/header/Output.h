@@ -6,6 +6,9 @@
 #include "Sum.h"
 #include "Search.h"
 #include "Read_Write.h"
+#include "stack.h"
+#include "stack_getdata.h"
+#include "stack_IRO.h"
 
 // xuất danh sách vé theo mã chuyến bay
 int Output_ticket(FILE *file)
@@ -107,7 +110,7 @@ int menu_output()
     {
         //----------------------------------menu xuat------------------------------
         printf("======================XUAT======================\n");
-        printf("\t1.Xuat danh sach cac chuyen bay\n\t2.Xuat danh sanh khach hang\n\t3.Thoat\n");
+        printf("\t1.Xuat danh sach cac chuyen bay\n\t2.Xuat danh sanh khach hang\n\t3.(stack)Xuat danh sach chuyen bay\n\t4.Thoat\n");
         printf("================================================\n");
         printf("Chon: ");
         scanf("%d",&choice);
@@ -216,14 +219,21 @@ int menu_output()
             system("cls");
             break;
         }           
-        case 3:
+        case 3:{
+            STACK s;
+            lay_ttcb_day_vao_stack(s);
+            sapxep(s);
+            xuat_cb(s);
+            getch();
+        }
+        case 4:
             system("cls");
             break;
         default:
             printf("Lua chon khong hop le\n");
             break;
         }
-    }while (choice != 3);
+    }while (choice != 4);
     return 0;
 }
 #endif//OUTPUT_H

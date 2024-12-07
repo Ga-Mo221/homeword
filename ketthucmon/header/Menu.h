@@ -8,6 +8,8 @@
 #include "Login_Create.h"
 #include "sua.h"
 #include "Search.h"
+#include "stack_IRO.h"
+#include "Filtering.h"
 
 void menu_admin()
 {
@@ -16,6 +18,8 @@ void menu_admin()
     int choice;
     do
     {
+        Filtering_flight(); // lọc chuyến bay
+        Filtering_chair();// lọc ghế
         printf("========================ADMIN======================\n");
         printf("\t\t1.Them chuyen bay\n");
         printf("\t\t2.Them ve\n");
@@ -34,7 +38,8 @@ void menu_admin()
         switch (choice)
         {
         case 1:
-            add_flight();
+            //add_flight();
+            nhap_cb();
             break;
         case 2:
             pay_ticket();
@@ -72,6 +77,8 @@ void menu_user()
     int choice;
     do
     {//=======================================MENU USER=======================================
+        Filtering_flight(); // lọc chuyến bay
+        Filtering_chair();// lọc ghế
         printf("========================USER======================\n");
         printf("\t\t1.Danh sach ve da dat\n");
         printf("\t\t2.Mua ve\n");

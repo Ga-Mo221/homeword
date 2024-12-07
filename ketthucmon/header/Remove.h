@@ -7,6 +7,7 @@
 #include "Filtering.h"
 #include "Output.h"
 #include "Position.h"
+#include "stack_IRO.h"
 
 // xoá chuyến bay
 int remove_flight()
@@ -180,53 +181,6 @@ int remove_ticket()
     return 0;
 }
 
-// xoá chuyến bay kiểu stack
-void remove_flight_Stack(){
-    // khởi tạo biến
-    int top = 0;
-    topcb = gettopcb();
-    if (topcb == 0){
-        printf("\nKHONG CO CHUYEN BAY NAO!\n");
-        return;
-    }
-    
-    // mở file
-    FILE * fcb = fopen("data/chuyen_bay/flight.txt","r");
-    FILE * tfcb = fopen("data/chuyen_bay/TEMP_flight.txt","w");
-    // kiểm tra
-    if (fcb == NULL){
-        printf("error: flight.txt\n");
-        exit(1);
-    }
-    if (tfcb == NULL){
-        printf("error: TEMP_flight.txt\n");
-        exit(1);
-    }
-
-    // xoá
-    char linecb[150];
-    while (fgets(linecb, 150, fcb) != NULL){
-        top++;
-        CB cb;
-        cb = read_cb(linecb);
-        if (top == topcb){
-            // đóng file
-            fclose(fcb);
-            fclose(tfcb);
-            printf("xoa thanh cong!\n");
-            // xoá và đổi tên
-            remove("data/chuyen_bay/flight.txt");
-            rename("data/chuyen_bay/TEMP_flight.txt","data/chuyen_bay/flight.txt");
-
-            // giảm top
-            topcb--;
-            luutopcb(topcb);
-        }
-        write_cb(tfcb, cb);
-    }
-    Filtering_chair();
-    Filtering_ticket();
-}
 
 // xoá vé kiểu stack
 void remove_ticket_Stack(){
@@ -302,7 +256,7 @@ void menu_remove()
         case 3:
             break;
         case 4:{
-            remove_flight_Stack();
+            Remove();
             printf("\nbam phim bat ki de thoat...\n");
             getch();
             system("cls");
