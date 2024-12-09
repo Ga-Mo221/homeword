@@ -57,5 +57,23 @@ void lay_ttcb_day_vao_stack(STACK &s){
     fclose(file);
 }
 
+void tinhsoghe(char macb[]){
+    FILE * file = fopen("data/chuyen_bay/Chair.txt", "r");
+
+    kiemtra_mo_file(file);
+
+    char line[200];
+    while (fgets(line, 200, file) != NULL){
+        GHE Ghe;
+        Ghe = read_chair(line);
+        if (strcmp(macb, Ghe.macb) == 0){
+            printf("%-12d\n", Ghe.con_lai);
+            fclose(file);
+            return;
+        }
+    }
+
+    fclose(file);
+}
 
 #endif//STACK_GETDATA_H

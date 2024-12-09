@@ -106,7 +106,7 @@ void display_user(HK hk)
 // xuất chuyến bay ra ngời màn hình
 void display_cb(CB cb)
 {
-    printf(" %-7s | %-20s | %-10s | %-10s | %2d/%2d/%-5d | %2d:%-4d | %2d/%2d/%-5d | %2d:%-4d | %-10d | %-10d | %-15d\n",
+    printf(" %-7s | %-16s | %-10s | %-10s | %2d/%2d/%-5d | %2d:%-4d | %2d/%2d/%-5d | %2d:%-4d | %-10d | %-10d | %-10d | ",
     cb.maCB, cb.hang, cb.tu, cb.den, 
     cb.ngayBay.tm_mday, cb.ngayBay.tm_mon, cb.ngayBay.tm_year, cb.ngayBay.tm_hour, cb.ngayBay.tm_min,
     cb.ngayDen.tm_mday, cb.ngayDen.tm_mon, cb.ngayDen.tm_year, cb.ngayDen.tm_hour, cb.ngayDen.tm_min,
